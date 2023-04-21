@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="eng">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>2021-1203 Nivo-Rela</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="assets/fontawesome-pro-5.15.4/css/all.css">
+        <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" href="assets/css/modernizer.css">
+    </head>
+    <body>
+         <nav class="navbar bg-dark  sticky-top bg-body-tertiary"  data-bs-theme="dark" style="height:90px">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#"><img src="assets/images/MDA_LOGO_WHT.png" height="65" alt="MDACC Logo"></a>
+            </div>
+            <div style="width:100%; background-color: #e32525;height: 4px; margin-top:7px"></div>
+        </nav>
+        
+        <div class="container d-flex justify-content-center align-items-center">
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="secureLogin"  style="width:450px" class="glass">
+                        <div class="card-body">
+                            <h1 class="card-title text-uppercase text-white text-center"><i class="fas fa-user-md"></i> Clinician Login</h1>
+                            
+                            <div class="row" style="margin-top:10px;">
+                                <div class="col-md-12">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="basic-addon1"><i class="fas fa-user-astronaut"></i></span>
+                                        <input type="text" class="form-control userid" id="Userid"  autocomplete="username" placeholder="Active Directory Username" autofocus />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text"><i class="far fa-key-skeleton"></i></span>
+                                        <input type="password" class="form-control userpassword"  autocomplete="current-password" id="password" placeholder="Active Directory Password" />
+                                        
+                                      </div>
+
+                                    <button type="button" class="btn btn-link iForgot float-end" style="color: darkblue; margin-top:-15px;font-size: 15px;" link="https://oneaccess.mdanderson.org/">Forgot Password <i class="fas fa-link"></i></button>
+                               
+                                </div>
+                            </div>
+
+                            <div class="row" id="access" style="display:none">
+                                <div class="col-md-12">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control bg-info" id="requestAccess" placeholder="name@example.com">
+                                        <label for="requestAccess">Please enter your employee id to request access.</label>
+                                      </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div id="loginMessage" class="alert alert-success" role="alert" style="display:none">
+                                        A simple light alert—check it out!
+                                      </div>
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top:5px; margin-bottom: 5px">
+                                
+                                <div class="col-md-6">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="requestAccessChk">
+                                        <label class="form-check-label" for="requestAccessChk">
+                                          Request Access
+                                        </label>
+                                      </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <button id="login2App" type="submit" class="btn  btn-primary login2App float-end">Login <i class="fas fa-sign-in-alt fa-fw "></i></button>
+                                </div>
+                            </div>
+                            
+                            <div class="alert alert-warning" role="alert" style="display: none;">
+                                <i class="fas fa-exclamation-triangle"></i> <span class="errormessage"></span>
+                            </div>
+                            
+                       
+                            <div class="card-footer" style="background-color: white; font-size:11px; border-radius: 5px;padding:10px 10px 10px 10px">
+                                <span style="font-weight: bold; color: red">UNAUTHORIZED ACCESS TO THIS NETWORK DEVICE IS PROHIBITED.</span> <br>Use of this application is for authorized University of Texas M. D. Anderson Cancer Center (UTMDACC) users only. This computer system is the property of UTMDACC. It may be used only as authorized by UTMDACC. Individuals accessing or using this computer system have no expectation of privacy with respect to such access or usage except as may otherwise be provided by applicable privacy laws. Pursuant to Texas Administrative Code Section 202.7, usage is subject to security testing and monitoring as appropriate, and misuse is subject to criminal prosecution. Report any suspected unauthorized activity to the Information Security Department at 713-745-9000. 
+                                <hr>
+                                <h3 class="card-title text-center text-uppercase">
+                                    <i class="fas fa-check-circle" style="color:green"></i> Browser Supported
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="patientRegistration" class="row" style="display:none">
+                <div class="col-md-12">
+                    <div class="glass" style="width:450px">
+                        <div class="card-body">
+                            <h1 class="card-title">Search for Patient</h1>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="input-group">
+                                        <span class="input-group-text" id="pSearch"><i class="fas fa-user-astronaut"></i></span>
+                                        <input type="text" class="form-control form-control-lg pSearch" id="pSearch"  placeholder="Search MRN" autofocus />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top:10px">
+                                <div class="col-md-12">
+                                    <span id="patientInfo">Verify Patient Information</span>
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top:10px">
+                                <div class="col-md-12">
+                                    <button id="searchResults" type="submit" class="btn btn-primary float-end disabled">Start Assessment</button>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top:10px;display:none">
+                <div class="col-md ">
+                    <div class="card">
+                        <div class="card-body">
+                            <ul class="list-group list-group-horizontal">
+                                <li class="list-group-item es5array"><i class="fas fa-check"></i> ES5 Array</li>
+                                <li class="list-group-item es5date"><i class="fas fa-check"></i> ES5 Date</li>
+                                <li class="list-group-item es5function"><i class="fas fa-check"></i> ES5 Function</li>
+                            </ul>
+                            <ul class="list-group list-group-horizontal">
+                                <li class="list-group-item es5object"><i class="fas fa-check"></i> ES5 Object</li>
+                                <li class="list-group-item es5string"><i class="fas fa-check"></i> ES5 String</li>
+                                <li class="list-group-item es5syntax"><i class="fas fa-check"></i> ES5 Syntax</li>
+                            </ul>
+                            <ul class="list-group list-group-horizontal">
+                                <li class="list-group-item audio"><i class="fas fa-check"></i> Audio</li>
+                                <li class="list-group-item canvas"><i class="fas fa-check"></i> Canvas</li>
+                                <li class="list-group-item csscalc"><i class="fas fa-check"></i> CSS Calculations</li>
+                            </ul>
+                            <ul class="list-group list-group-horizontal">
+                                <li class="list-group-item cssgradients"><i class="fas fa-check"></i> CSS Gradients</li>
+                                <li class="list-group-item csstransitions"><i class="fas fa-check"></i> CSS Transitions</li>
+                                <li class="list-group-item es5"><i class="fas fa-check"></i> ES5</li>
+                            </ul>
+        
+                            <ul class="list-group list-group-horizontal">
+                                <li class="list-group-item localstorage"><i class="fas fa-check"></i> Local Storage</li>
+                                <li class="list-group-item rgba"><i class="fas fa-check"></i> RGBA</li>
+                                <li class="list-group-item strictmode"><i class="fas fa-check"></i> Strict Mode</li>
+                            </ul>
+                            <ul class="list-group list-group-horizontal">
+                                <li class="list-group-item svg"><i class="fas fa-check"></i> SVG</li>
+                                <li class="list-group-item xhrresponsetypejson"><i class="fas fa-check"></i> jSon</li>
+                                <li class="list-group-item setclasses"><i class="fas fa-check"></i> Set Classes</li>
+                            </ul>
+                            <ul class="list-group list-group-horizontal">
+                                <li class="list-group-item es5undefined"><i class="fas fa-check"></i> ES5 Undefined</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="assets/js/app.js"></script>
+        <script src="assets/js/modernizer.js"></script>
+        <script src="node_modules/jquery/dist/jquery.js"></script>
+        <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="node_modules/@popperjs/core/dist/umd/popper.js"></script>
+        
+    </body>
+</html>
+<script>
+
+    $(document).ready(function(){
+        sessionStorage.clear();
+        //patentSearch is the input field that will be used to search for the patientSearch(mrn) function
+        $('.pSearch').keyup(function(){      
+            var mrn = $(this).val();
+            if (mrn.length >= 5) {
+                patientSearch(mrn);
+            }
+        });
+
+        var marginTop = ($('.container').height() - $('.card').height()) / 2;
+        $('.card').css('margin-top', marginTop + 'px');
+
+        //when requestAccessChk is checked then show the requestAccess div
+        $('#requestAccessChk').change(function() {
+            if ($(this).is(':checked')) {
+                $('#access').slideDown(1000).show();
+                $('#login2App').html('<i class="fad fa-door-open"></i> Request Access');
+            } else {
+                $('#access').slideUp(1000).hide();
+                $('#login2App').html('Login <i class="fas fa-sign-in-alt fa-fw "></i>');
+            }
+        });
+        
+        //this code will remove the check mark from the list items that are not supported by the browser
+        $('.list-group-item').each(function() {
+            var x = $(this).css('color');
+            if (x === 'rgb(255, 0, 0)') {
+                $(this).find('i.fas').toggleClass('fas fa-check fas fa-times');
+                $('h3.card-title').find('i.fas').toggleClass('fas fa-check-circle fas fa-times-circle').css('color', 'red');
+                $('h3.card-title').replaceWith('<h4 class="card-title text-center text-uppercase"><i class="fas fa-times-circle" style="color:red"></i> Browser Not Supported</h4><p class="text-center">Please contact 4-INFO Call Center at ext. 713-794-4636 or email <a href="mailto:4info@mdanderson.org">4info@mdanderson.org</a> for assistance.</p><p class="text-center"><a href="browser_check.html"class="text-uppercase">Review browser details</p>');
+                $('#login2App').prop('disabled', true);
+            }
+        });
+
+        $('#Userid').keyup(function(){
+            var a = $(this).val();
+            if(a.length >= 4){
+                $(this).addClass('is-valid');
+            }
+        });
+        $('#password').keyup(function(){
+            var b = $(this).val();
+            if(b.length >= 6){
+                $(this).addClass('is-valid');
+            }
+        });
+        $('#login2App').click(function(){
+            var u = $('#Userid').val();
+            var p = $('#password').val();
+            //verify username and password is not null
+            if(u == '' || p == ''){
+                if(u.length == 0){
+                    $('#Userid').addClass('is-invalid').focus();
+                }
+                if(p.length == 0){
+                    $('#password').addClass('is-invalid').focus();
+                }
+                $('.alert-warning').show().animate({opacity: 1.0}, 3000).fadeOut("slow");
+                $('.errormessage').html('Please enter your username and password')
+                return;
+            }else{
+                authentication(u,p);
+            }
+        });
+
+    });
+    function patientSearch(mrn){
+        console.log(mrn)
+        $.ajax({
+            url: 'assets/jSon/patient_lu.json',
+            type: "GET",
+            dataType: "json",
+            data:{
+                MRN: mrn
+            },
+            success: function(data){
+                var patients = data.patients;
+                var patient = null;
+                for (var i = 0; i < patients.length; i++) {
+                    if (patients[i].MRN == mrn) {
+                        patient = patients[i];
+                        break;
+                    }
+                }
+                if(patient){
+                    $('#patientInfo').html(patient.FIRST_NAME + ' ' + patient.LAST_NAME +', DOB: '+ patient.DOB);
+                    $('#searchResults').removeClass('disabled');
+                    $('#searchResults').on('click', function(){
+                        sessionStorage.setItem('patientMrn', mrn);
+                        sessionStorage.setItem('patientName', patient.FIRST_NAME + ' ' + patient.LAST_NAME);
+                        sessionStorage.setItem('patientDob', patient.DOB);
+
+                        window.location.href = 'assessment.html';
+                    });
+                }else{
+                    $('#patientInfo').html('Patient not found');
+                }
+            },
+            error: function(){
+                console.log('error')
+            }
+        });
+    }
+    function authentication(u,p){       
+        $.ajax({
+            url: 'assets/jSon/employee_lu.json',
+            type: "GET",
+            dataType: "json",
+            data:{
+                USERNAME: u,
+                PASSWORD: p
+            },
+            success: function(data){
+                var x = data.employees
+                var authenticatedUser = null;
+
+                for (var i = 0; i < x.length; i++) {
+                    if (x[i].USERNAME.toLowerCase() === u.toLowerCase() && x[i].PASSWORD.toLowerCase() === p.toLowerCase()) {
+                        authenticatedUser = x[i];
+                        break;
+                    }
+                }
+                if (authenticatedUser) {
+                    sessionStorage.setItem('emplid', authenticatedUser.EMPLID);
+                    sessionStorage.setItem('fullname', authenticatedUser.FULL_NAME);
+                    sessionStorage.setItem('nickname', authenticatedUser.NICKNAME);
+                    sessionStorage.setItem('name', authenticatedUser.NICKNAME);
+                    sessionStorage.setItem('email', authenticatedUser.EMAIL_ADDRESS);
+                    sessionStorage.setItem('dept', authenticatedUser.DISPLAY_NAME);
+                    $('.alert-success').html('SUCCESSFULLY LOGGED IN').show().animate({opacity: 1.0}, 3000).fadeOut("slow");
+                    $('#secureLogin').animate({left: '-=400%'}, 700, function() {
+                        $('#secureLogin').hide();
+                        // Animation complete, show the new card
+                        $('#patientRegistration').slideDown(500).show();
+                    });
+                } else {
+                    sessionStorage.clear();
+                    // If the user is not authenticated, display an error message
+                    $('.alert-warning').show().animate({opacity: 1.0}, 3000).fadeOut("slow");
+                    $('.errormessage').html('Invalid username or password');
+                    //$('#Userid').addClass('is-invalid').focus();
+                    $('#password').addClass('is-invalid').focus();
+                }
+            },
+            error: function(){
+                console.log('error');
+            }
+        });
+    }
+</script>
